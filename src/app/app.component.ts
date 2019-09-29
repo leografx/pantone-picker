@@ -39,14 +39,14 @@ export class AppComponent {
       });
 
       this.selectColors.emit(this.colors);
-      console.log(this.selectColors);
+      // console.log(this.selectColors);
     }
   }
 
   removeSwatch(index) {
-
     this.colors.splice(index, 1);
-    console.log(index);
+    this.selectColors.emit(this.colors);
+    // console.log(this.selectColors);
   }
 
   changeColorUncoated() {
