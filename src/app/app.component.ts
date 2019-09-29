@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { R3TargetBinder } from '@angular/compiler';
 
@@ -13,7 +13,8 @@ export class AppComponent {
   colorList;
   colorListCMYK;
   colors = [];
-  colorLabel = { rgb: "", Name: "" };
+  colorLabel = { rgb: '', Name: '' };
+  @Output() selectColors: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) {
     this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
@@ -28,7 +29,6 @@ export class AppComponent {
   }
 
   getColor(color: string) {
-    console.log(color);
     if (color.length >= 3) {
       const exp = new RegExp('pantone ' + color);
       this.colorList.filter((data) => data.Name.toLowerCase().match(exp)).map(data => {
@@ -37,6 +37,9 @@ export class AppComponent {
         this.setColor(data);
         this.colors.push(this.colorLabel);
       });
+
+      this.selectColors.emit(this.colors);
+      console.log(this.selectColors);
     }
   }
 
