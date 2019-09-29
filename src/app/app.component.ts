@@ -11,6 +11,7 @@ import { R3TargetBinder } from '@angular/compiler';
 export class AppComponent {
   title = 'color';
   colorList;
+  colorListCMYK;
   colors = [];
   colorLabel = { rgb: "", Name: "" };
 
@@ -48,5 +49,14 @@ export class AppComponent {
   changeColorUncoated() {
     this.colorList = [];
     this.http.get('/assets/color-uncoated.json').subscribe((data) => this.colorList = data);
+  }
+
+  changeColorCoated() {
+    this.colorList = [];
+    this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
+  }
+
+  changeColorCMYK() {
+    this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
   }
 }

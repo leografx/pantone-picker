@@ -1,13 +1,12 @@
 <div class="wrap">
-    <div>
+    <div class="col-1">
         <div class="input-group">
             <label for="color">PANTONE# </label>
             <input id="color" #color type="text" (click)="$event.target.select()" (focus)="$event.target.select()" (change)="getColor(color.value)">
         </div>
         <div class="input-group-radio">
-            <label for="c"> <input id="c" type="radio" name="type" checked="checked" value="C">  Coated </label> <br>
+            <label for="c" (click)="changeColorCoated()"> <input id="c" type="radio" name="type" checked="checked" value="C">  Coated </label> <br>
             <label for="u" (click)="changeColorUncoated()">  <input id="u" type="radio" name="type" value="U"> Uncoated </label><br>
-            <label for="cmyk"> <input id="cmyk" type="radio" name="type" value="CMYK"> CMYK </label><br>
         </div>
 
     </div>
@@ -19,5 +18,6 @@
                 <p>PANTONE <br> {{color.Name}}</p>
             </div>
         </div>
+
     </div>
 </div>
