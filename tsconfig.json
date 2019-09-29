@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "pantone-picker": [
+        "dist/pantone-picker"
+      ],
+      "pantone-picker/*": [
+        "dist/pantone-picker/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

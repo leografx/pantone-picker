@@ -1,14 +1,12 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'lib-pantone-picker',
+  templateUrl: 'pantone-picker.html',
+  styleUrls: ['pantone-picker.scss']
 })
-export class AppComponent {
+export class PantonePickerComponent implements OnInit {
   title = 'color';
   colorList;
   colorListCMYK;
@@ -18,6 +16,10 @@ export class AppComponent {
 
   constructor(private http: HttpClient) {
     this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
+  }
+
+  ngOnInit() {
+
   }
 
   setColor(color) {
