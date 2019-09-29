@@ -1,15 +1,23 @@
 <div class="wrap">
-  <div>
-    <div class="input-group">
-      <label for="color">PANTONE# </label>
-      <input id="color" #color type="text" (change)="getColor(color.value)">
+    <div>
+        <div class="input-group">
+            <label for="color">PANTONE# </label>
+            <input id="color" #color type="text" (click)="$event.target.select()" (focus)="$event.target.select()" (change)="getColor(color.value)">
+        </div>
+        <div class="input-group-radio">
+            <label for="c"> <input id="c" type="radio" name="type" checked="checked" value="C">  Coated </label> <br>
+            <label for="u" (click)="changeColorUncoated()">  <input id="u" type="radio" name="type" value="U"> Uncoated </label><br>
+            <label for="cmyk"> <input id="cmyk" type="radio" name="type" value="CMYK"> CMYK </label><br>
+        </div>
+
     </div>
-  </div>
-  <div class="div">
-    <div *ngFor="let color of colors" class="swatch" [style.background-color]="'rgb('+ color.rgb +')'">
-      <div class="swatch-label">
-        <p>{{color.Name}}</p>
-      </div>
+    <div class="div">
+
+        <div *ngFor="let color of colors; index as i" class="swatch" [style.background-color]="'rgb('+ color.rgb +')'">
+            <div class="swatch-close-btn" (click)="removeSwatch(i)"> x </div>
+            <div class="swatch-label">
+                <p>PANTONE <br> {{color.Name}}</p>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

@@ -28,11 +28,25 @@ export class AppComponent {
 
   getColor(color: string) {
     console.log(color);
-    this.colorList.filter((data) => data.Name === 'PANTONE ' + color + ' C').map(data => {
-      this.colorLabel = data;
-      this.setColor(data);
-      this.colors.push(this.colorLabel);
-    });
+    if (color.length >= 3) {
+      const exp = new RegExp('pantone ' + color);
+      this.colorList.filter((data) => data.Name.toLowerCase().match(exp)).map(data => {
+        data.Name = data.Name.replace('PANTONE', '');
+        this.colorLabel = data;
+        this.setColor(data);
+        this.colors.push(this.colorLabel);
+      });
+    }
+  }
 
+  removeSwatch(index) {
+
+    this.colors.splice(index, 1);
+    console.log(index);
+  }
+
+  changeColorUncoated() {
+    this.colorList = [];
+    this.http.get('/assets/color-uncoated.json').subscribe((data) => this.colorList = data);
   }
 }
