@@ -9,7 +9,10 @@
     "lib": [
       "dom",
       "es2018"
-    ]
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

@@ -7,7 +7,8 @@
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "npm_pack": "cd dist/pantone-picker && npm pack"
     },
     "private": true,
     "dependencies": {

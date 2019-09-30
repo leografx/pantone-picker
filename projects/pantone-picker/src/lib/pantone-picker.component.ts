@@ -1,5 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'lib-pantone-picker',
@@ -8,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PantonePickerComponent implements OnInit {
   title = 'color';
+  @Input() label;
+  finish = 'C';
   colorList;
   colorListCMYK;
   colors = [];
@@ -62,6 +66,7 @@ export class PantonePickerComponent implements OnInit {
   }
 
   changeColorCMYK() {
-    this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
+    // this.colorList = JSON.parse(color);
+    // this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
   }
 }

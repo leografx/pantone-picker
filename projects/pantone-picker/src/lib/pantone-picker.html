@@ -1,14 +1,15 @@
 <div class="wrap">
     <div class="col-1">
-        <div class="input-group">
-            <label for="color">PANTONE# </label>
-            <input id="color" #color type="text" (click)="$event.target.select()" (focus)="$event.target.select()" (change)="getColor(color.value)">
-        </div>
-        <div class="input-group-radio">
-            <label for="c" (click)="changeColorCoated()"> <input id="c" type="radio" name="type" checked="checked" value="C">  Coated </label> <br>
-            <label for="u" (click)="changeColorUncoated()">  <input id="u" type="radio" name="type" value="U"> Uncoated </label><br>
-        </div>
-
+        <form>
+            <div class="input-group">
+                <label for="color">PANTONE# </label>
+                <input id="color" #color type="text" (click)="$event.target.select()" (focus)="$event.target.select()" (change)="getColor(color.value)">
+            </div>
+            <div class="input-group-radio">
+                <label [for]="label+'c'" (click)="changeColorCoated()"> <input [id]="label+'c'" type="radio"  name="finish" [(ngModel)]="finish" [ngModelOptions]="{standalone: true}" value="C">  Coated </label> <br>
+                <label [for]="label+'u'" (click)="changeColorUncoated()">  <input [id]="label+'u'" type="radio" name="finish" [(ngModel)]="finish"  [ngModelOptions]="{standalone: true}" value="U"> Uncoated </label><br>
+            </div>
+        </form>
     </div>
     <div>
 
