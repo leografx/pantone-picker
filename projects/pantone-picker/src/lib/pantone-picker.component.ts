@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Colors } from './colors';
 
 
 @Component({
@@ -12,6 +12,7 @@ export class PantonePickerComponent implements OnInit {
   title = 'color';
   @Input() label;
   finish = 'C';
+  colorSwatch = new Colors();
   colorList;
   colorListCMYK;
   colors = [];
@@ -19,7 +20,8 @@ export class PantonePickerComponent implements OnInit {
   @Output() selectColors: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) {
-    this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
+    this.colorList = this.colorSwatch.coated;
+    // this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
   }
 
   ngOnInit() {
@@ -57,12 +59,14 @@ export class PantonePickerComponent implements OnInit {
 
   changeColorUncoated() {
     this.colorList = [];
-    this.http.get('/assets/color-uncoated.json').subscribe((data) => this.colorList = data);
+    this.colorList = this.colorSwatch.uncoated;
+    // this.http.get('/assets/color-uncoated.json').subscribe((data) => this.colorList = data);
   }
 
   changeColorCoated() {
     this.colorList = [];
-    this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
+    this.colorList = this.colorSwatch.coated;
+    // this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
   }
 
   changeColorCMYK() {
