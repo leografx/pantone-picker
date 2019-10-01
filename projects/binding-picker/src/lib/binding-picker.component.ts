@@ -4,6 +4,12 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-binding-picker',
   template: `
   <div class="container">
+    <div class="col-1">
+      <div class="input-group">
+        <label>BINDING STYLE</label>
+        <input type="text" [value]="binding"/>
+      </div>
+    </div>
     <div class="row">
       <div  class="binding" (click)="setBinding('Saddle Stitch')" style="width:130px; height:100px; display:inline-block;">
         <div style="text-align:center;">
@@ -48,16 +54,13 @@ import { Component, OnInit } from '@angular/core';
       </div>
     </div>
 
-    <div class="row">
-      <input type="text" [value]="binding"/>
-    </div>
   </div>
   `,
   styleUrls: ['binding-picker.scss']
 })
 export class BindingPickerComponent implements OnInit {
 
-  binding;
+  binding = '';
 
   saddleStich = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAAESCAMAAAD3x6a1AAABl
   VBMVEVMaXEAmd0AnOYAoOQAoOIAoeQAoOMAoOQAoOIAoeKmqasAoOOmqaumqKukrKwAoeQAoOOqqqqnqKunqas
