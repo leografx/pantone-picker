@@ -22,6 +22,6 @@
     </div>
 </div> -->
 <h2>Front</h2>
-<lib-pantone-picker [label]="'front'"></lib-pantone-picker>
+<lib-pantone-picker [label]="'front'" (selectColorList)="colorListSelected($event)"></lib-pantone-picker>
 <h2>Back</h2>
-<lib-pantone-picker [label]="'back'"></lib-pantone-picker>
+<lib-pantone-picker [label]="'back'" (selectColorList)="colorListSelected($event)"></lib-pantone-picker>

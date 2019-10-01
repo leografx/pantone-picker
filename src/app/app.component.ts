@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 
 
 
@@ -16,50 +16,54 @@ export class AppComponent {
   colorLabel = { rgb: '', Name: '' };
   @Output() selectColors: EventEmitter<any> = new EventEmitter();
 
-  constructor(private http: HttpClient) {
-    this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
+  constructor() {
+    // this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
   }
 
-  setColor(color) {
-    this.colorLabel.rgb = color.red;
-    this.colorLabel.rgb += ', ';
-    this.colorLabel.rgb += color.green;
-    this.colorLabel.rgb += ', ';
-    this.colorLabel.rgb += color.blue;
+  colorListSelected(e) {
+    console.log(e);
   }
 
-  getColor(color: string) {
-    if (color.length >= 3) {
-      const exp = new RegExp('pantone ' + color);
-      this.colorList.filter((data) => data.Name.toLowerCase().match(exp)).map(data => {
-        data.Name = data.Name.replace('PANTONE', '');
-        this.colorLabel = data;
-        this.setColor(data);
-        this.colors.push(this.colorLabel);
-      });
+  // setColor(color) {
+  //   this.colorLabel.rgb = color.red;
+  //   this.colorLabel.rgb += ', ';
+  //   this.colorLabel.rgb += color.green;
+  //   this.colorLabel.rgb += ', ';
+  //   this.colorLabel.rgb += color.blue;
+  // }
 
-      this.selectColors.emit(this.colors);
-      // console.log(this.selectColors);
-    }
-  }
+  // getColor(color: string) {
+  //   if (color.length >= 3) {
+  //     const exp = new RegExp('pantone ' + color);
+  //     this.colorList.filter((data) => data.Name.toLowerCase().match(exp)).map(data => {
+  //       data.Name = data.Name.replace('PANTONE', '');
+  //       this.colorLabel = data;
+  //       this.setColor(data);
+  //       this.colors.push(this.colorLabel);
+  //     });
 
-  removeSwatch(index) {
-    this.colors.splice(index, 1);
-    this.selectColors.emit(this.colors);
-    // console.log(this.selectColors);
-  }
+  //     this.selectColors.emit(this.colors);
+  //     // console.log(this.selectColors);
+  //   }
+  // }
 
-  changeColorUncoated() {
-    this.colorList = [];
-    this.http.get('/assets/color-uncoated.json').subscribe((data) => this.colorList = data);
-  }
+  // removeSwatch(index) {
+  //   this.colors.splice(index, 1);
+  //   this.selectColors.emit(this.colors);
+  //   // console.log(this.selectColors);
+  // }
 
-  changeColorCoated() {
-    this.colorList = [];
-    this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
-  }
+  // changeColorUncoated() {
+  //   this.colorList = [];
+  //   this.http.get('/assets/color-uncoated.json').subscribe((data) => this.colorList = data);
+  // }
 
-  changeColorCMYK() {
-    this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
-  }
+  // changeColorCoated() {
+  //   this.colorList = [];
+  //   this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
+  // }
+
+  // changeColorCMYK() {
+  //   this.http.get('/assets/color.json').subscribe((data) => this.colorList = data);
+  // }
 }
