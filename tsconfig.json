@@ -30,6 +30,12 @@
       ],
       "binding-picker/*": [
         "dist/binding-picker/*"
+      ],
+      "fold-picker": [
+        "dist/fold-picker"
+      ],
+      "fold-picker/*": [
+        "dist/fold-picker/*"
       ]
     }
   },
