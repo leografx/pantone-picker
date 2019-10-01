@@ -4,68 +4,61 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-binding-picker',
   template: `
   <div class="container">
-    <div  class="binding" style="width:130px; height:100px; display:inline-block;">
-      <div style="text-align:center;">
-        <img height="100px" [src]="saddleStich"/>
-        <div class="binding-text"> Saddle Stitched </div>
+    <div class="row">
+      <div  class="binding" (click)="setBinding('Saddle Stitch')" style="width:130px; height:100px; display:inline-block;">
+        <div style="text-align:center;">
+          <img height="100px" [src]="saddleStich"/>
+          <div class="binding-text"> Saddle Stitched </div>
+        </div>
+      </div>
+
+      <div class="binding"  (click)="setBinding('Perfect Bound')"  style="width:130px; height:100px; display:inline-block;">
+        <div style="text-align:center;">
+          <img height="100px" [src]="perfectBound"/>
+          <div class="binding-text"> Perfect Bound</div>
+        </div>
+      </div>
+
+      <div class="binding" (click)="setBinding('Spiral Bound')" style="width:130px; height:100px; display:inline-block;">
+        <div style="text-align:center;">
+          <img height="100px" [src]="spiralBound"/>
+          <div class="binding-text"> Spiral Bound</div>
+        </div>
+      </div>
+
+      <div class="binding" (click)="setBinding('Wire-O Bound')" style="width:130px; height:100px; display:inline-block;">
+        <div style="text-align:center;">
+          <img height="100px" [src]="wireObound"/>
+          <div class="binding-text"> Wire-O Bound</div>
+        </div>
+      </div>
+
+      <div class="binding" (click)="setBinding('Stab Stitched')" style="width:130px; height:100px; display:inline-block;">
+        <div style="text-align:center;">
+          <img height="100px" [src]="stabStitch"/>
+          <div class="binding-text"> Stab Stitched</div>
+        </div>
+      </div>
+
+      <div class="binding" (click)="setBinding('Comb Bound')" style="width:130px; height:100px; display:inline-block;">
+        <div style="text-align:center;">
+          <img height="100px" [src]="combBound"/>
+          <div class="binding-text"> Comb Bound</div>
+        </div>
       </div>
     </div>
 
-    <div class="binding" style="width:130px; height:100px; display:inline-block;">
-      <div style="text-align:center;">
-        <img height="100px" [src]="perfectBound"/>
-        <div class="binding-text"> Perfect Bound</div>
-      </div>
-    </div>
-
-    <div class="binding" style="width:130px; height:100px; display:inline-block;">
-      <div style="text-align:center;">
-        <img height="100px" [src]="spiralBound"/>
-        <div class="binding-text"> Spiral Bound</div>
-      </div>
-    </div>
-
-    <div class="binding" style="width:130px; height:100px; display:inline-block;">
-      <div style="text-align:center;">
-        <img height="100px" [src]="wireObound"/>
-        <div class="binding-text"> Wire-O Bound</div>
-      </div>
-    </div>
-
-    <div class="binding" style="width:130px; height:100px; display:inline-block;">
-      <div style="text-align:center;">
-        <img height="100px" [src]="stabStitch"/>
-        <div class="binding-text"> Stab Stitched</div>
-      </div>
-    </div>
-
-    <div class="binding" style="width:130px; height:100px; display:inline-block;">
-      <div style="text-align:center;">
-        <img height="100px" [src]="combBound"/>
-        <div class="binding-text"> Comb Bound</div>
-      </div>
+    <div class="row">
+      <input type="text" [value]="binding"/>
     </div>
   </div>
   `,
-  styles: [`
-      .container {
-        min-height:157px;
-        width: 100%;
-        border:1px solid silver;
-        font-size: 10px;
-      }
-
-      .binding {
-        margin: 20px 0px;
-      }
-
-      .binding-text {
-        height:20px;
-        margin: 10px;
-      }
-  `]
+  styleUrls: ['binding-picker.scss']
 })
 export class BindingPickerComponent implements OnInit {
+
+  binding;
+
   saddleStich = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAAESCAMAAAD3x6a1AAABl
   VBMVEVMaXEAmd0AnOYAoOQAoOIAoeQAoOMAoOQAoOIAoeKmqasAoOOmqaumqKukrKwAoeQAoOOqqqqnqKunqas
   AoOMAoOIAneMAoOOoqK2nqqylqqqmqawAoeGnp6sAoeWnqKwApOYAoeQAoOKnqasAoOQAoeOnqqsAoOSmqKwAo
@@ -584,6 +577,11 @@ export class BindingPickerComponent implements OnInit {
     this.wireObound = this.wireObound.trim().replace((/  |\r\n|\n|\r/gm), '');
     this.stabStitch = this.stabStitch.trim().replace((/  |\r\n|\n|\r/gm), '');
     this.combBound = this.combBound.trim().replace((/  |\r\n|\n|\r/gm), '');
+  }
+
+  setBinding(type) {
+    this.binding = type;
+    console.log(type);
   }
 
 }

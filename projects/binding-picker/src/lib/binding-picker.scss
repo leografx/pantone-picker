@@ -1,0 +1,32 @@
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    min-height:157px;
+    width: 100%;
+    border:1px solid silver;
+    font-size: 10px;
+  }
+
+  .binding {
+    cursor: pointer;
+    margin: 20px 0px;
+  }
+
+  .binding img {
+    cursor: pointer;
+  }
+
+  .binding-text {
+    cursor: pointer;
+    height:20px;
+    margin: 10px;
+  }
+
+
+input[type="text"] {
+  width: 70%;
+  margin: 20px 40px 20px 10px;
+  line-height: 25px;
+  font-size: 14px;
+}
+
