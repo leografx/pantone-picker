@@ -24,6 +24,12 @@
       ],
       "pantone-picker/*": [
         "dist/pantone-picker/*"
+      ],
+      "binding-picker": [
+        "dist/binding-picker"
+      ],
+      "binding-picker/*": [
+        "dist/binding-picker/*"
       ]
     }
   },

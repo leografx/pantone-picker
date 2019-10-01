@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PantonePickerModule } from 'pantone-picker';
+import { BindingPickerModule } from 'binding-picker';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { PantonePickerModule } from 'pantone-picker';
   ],
   imports: [
     BrowserModule,
-    PantonePickerModule
+    PantonePickerModule,
+    BindingPickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
