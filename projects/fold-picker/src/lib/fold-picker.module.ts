@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FoldPickerComponent } from './fold-picker.component';
+import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
   declarations: [FoldPickerComponent],
-  imports: [
+  imports: [CommonModule
   ],
   exports: [FoldPickerComponent]
 })

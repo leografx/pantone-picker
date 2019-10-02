@@ -7,30 +7,36 @@
     border:1px solid silver;
     font-size: 10px;
   }
-  
-  .row .binding {
+  .row {
+    margin-top: 10px;
+  }
+
+  .row .fold {
     padding-bottom: 30px;
   }
 
-  .binding {
-    cursor: pointer;
-    margin: 20px 0px;
-  }
-
-  .binding img {
+  .fold {
     cursor: pointer;
   }
 
-  .binding-text {
+  .fold img {
     cursor: pointer;
-    height:20px;
-    margin: 10px;
   }
+
+  .fold-text {
+    cursor: pointer;
+    height:30px;
+  }
+
+.select-fold {
+  width: 100%;
+  text-align: center;
+}
 
 
 input[type="text"], textarea {
   width: 175px;
-  margin: 0px 40px 20px 10px;
+  margin: 0px 40px 10px 10px;
   line-height: 25px;
   font-size: 14px;
 }
@@ -38,7 +44,6 @@ input[type="text"], textarea {
 textarea {
   max-width: 175px;
 }
-
 .col-1 {
   background: silver;
 }
@@ -51,14 +56,9 @@ textarea {
   margin: 10px 0px;
 }
 
-.select-binding {
-  width: 100%;
-  padding-bottom: 30px;
-  text-align: center;
-}
-
 .link {
   cursor: pointer;
   color: darkcyan;
   text-decoration: underline;
 }
+
