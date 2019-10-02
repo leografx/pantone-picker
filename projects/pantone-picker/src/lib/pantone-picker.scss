@@ -4,7 +4,7 @@
 
 .wrap {
     display: grid;
-    grid-template-columns: 100px auto;
+    grid-template-columns: 200px auto;
     column-gap: 10px;
     border: 1px solid silver;
 }
@@ -22,7 +22,7 @@
 }
 
 .wrap input[type=text] {
-    width: 70px;
+    width: 170px;
     font-size: 14px;
     margin-right: 12px;
     line-height: 25px;
@@ -43,7 +43,7 @@
     position: relative;
     border: 1px solid lightgray;
     display: inline-block;
-    margin: 10px 3px;
+    margin: 5px 3px;
 }
 
 .swatch-label {

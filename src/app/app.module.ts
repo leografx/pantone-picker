@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { PantonePickerModule } from 'pantone-picker';
 import { BindingPickerModule } from 'binding-picker';
 import { FoldPickerModule } from 'fold-picker';
+import { EnvelopePickerModule } from 'envelope-picker';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FoldPickerModule } from 'fold-picker';
     BrowserModule,
     PantonePickerModule,
     BindingPickerModule,
-    FoldPickerModule
+    FoldPickerModule,
+    EnvelopePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

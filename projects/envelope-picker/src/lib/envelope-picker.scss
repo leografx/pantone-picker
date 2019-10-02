@@ -1,0 +1,66 @@
+.container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    border: 1px solid silver;
+    min-height:157px;
+    width: 100%;
+    border:1px solid silver;
+    font-size: 10px;
+  }
+  .row {
+    margin-top: 10px;
+  }
+
+  .row .envelope {
+    padding-bottom: 30px;
+  }
+
+  .envelope {
+    cursor: pointer;
+  }
+
+  .envelope img {
+    width: 80px;
+    cursor: pointer;
+  }
+
+  .envelope-text {
+    cursor: pointer;
+    height:30px;
+  }
+
+.select-envelope {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+
+input[type="text"], textarea {
+  width: 175px;
+  margin: 0px 40px 10px 10px;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+textarea {
+  max-width: 175px;
+}
+.col-1 {
+  background: silver;
+}
+
+.input-group label{
+  margin: 10px 10px;
+}
+
+.input-group {
+  margin: 10px 0px;
+}
+
+.link {
+  cursor: pointer;
+  color: darkcyan;
+  text-decoration: underline;
+}
+

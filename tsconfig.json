@@ -36,6 +36,12 @@
       ],
       "fold-picker/*": [
         "dist/fold-picker/*"
+      ],
+      "envelope-picker": [
+        "dist/envelope-picker"
+      ],
+      "envelope-picker/*": [
+        "dist/envelope-picker/*"
       ]
     }
   },
