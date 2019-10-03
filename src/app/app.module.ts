@@ -5,6 +5,7 @@ import { PantonePickerModule } from 'pantone-picker';
 import { BindingPickerModule } from 'binding-picker';
 import { FoldPickerModule } from 'fold-picker';
 import { EnvelopePickerModule } from 'envelope-picker';
+import { QrcodeMakeModule } from 'qrcode-make';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { EnvelopePickerModule } from 'envelope-picker';
     PantonePickerModule,
     BindingPickerModule,
     FoldPickerModule,
-    EnvelopePickerModule
+    EnvelopePickerModule,
+    QrcodeMakeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

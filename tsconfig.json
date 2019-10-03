@@ -42,6 +42,18 @@
       ],
       "envelope-picker/*": [
         "dist/envelope-picker/*"
+      ],
+      "qrcode": [
+        "dist/qrcode"
+      ],
+      "qrcode/*": [
+        "dist/qrcode/*"
+      ],
+      "qrcode-make": [
+        "dist/qrcode-make"
+      ],
+      "qrcode-make/*": [
+        "dist/qrcode-make/*"
       ]
     }
   },

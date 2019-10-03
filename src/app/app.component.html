@@ -1,32 +1,15 @@
-<!-- <div class="wrap">
-    <div class="col-1">
-        <div class="input-group">
-            <label for="color">PANTONE# </label>
-            <input id="color" #color type="text" (click)="$event.target.select()" (focus)="$event.target.select()" (change)="getColor(color.value)">
-        </div>
-        <div class="input-group-radio">
-            <label for="c" (click)="changeColorCoated()"> <input id="c" type="radio" name="type" checked="checked" value="C">  Coated </label> <br>
-            <label for="u" (click)="changeColorUncoated()">  <input id="u" type="radio" name="type" value="U"> Uncoated </label><br>
-        </div>
+<h2>QRCODE</h2>
+<lib-qrcode-make></lib-qrcode-make>
 
-    </div>
-    <div class="div">
-
-        <div *ngFor="let color of colors; index as i" class="swatch" [style.background-color]="'rgb('+ color.rgb +')'">
-            <div class="swatch-close-btn" (click)="removeSwatch(i)"> x </div>
-            <div class="swatch-label">
-                <p>PANTONE <br> {{color.Name}}</p>
-            </div>
-        </div>
-
-    </div>
-</div> -->
 <h2>Front</h2>
 <lib-pantone-picker [label]="'front'" (selectColorList)="colorListSelected($event)"></lib-pantone-picker>
+
 <h2>Back</h2>
 <lib-pantone-picker [label]="'back'" (selectColorList)="colorListSelected($event)"></lib-pantone-picker>
+
 <h2>Binding</h2>
 <lib-binding-picker></lib-binding-picker>
+
 <h2>Fold</h2>
 <lib-fold-picker></lib-fold-picker>
 

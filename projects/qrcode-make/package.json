@@ -1,0 +1,9 @@
+{
+  "name": "qrcode-make",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.7",
+    "@angular/core": "^8.2.7",
+    "qrcode": "^1.4.2"
+  }
+}

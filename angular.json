@@ -264,6 +264,76 @@
           }
         }
       }
+    },
+    "qrcode": {
+      "projectType": "library",
+      "root": "projects/qrcode",
+      "sourceRoot": "projects/qrcode/src",
+      "prefix": "leo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/qrcode/tsconfig.lib.json",
+            "project": "projects/qrcode/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/qrcode/src/test.ts",
+            "tsConfig": "projects/qrcode/tsconfig.spec.json",
+            "karmaConfig": "projects/qrcode/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/qrcode/tsconfig.lib.json",
+              "projects/qrcode/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "qrcode-make": {
+      "projectType": "library",
+      "root": "projects/qrcode-make",
+      "sourceRoot": "projects/qrcode-make/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/qrcode-make/tsconfig.lib.json",
+            "project": "projects/qrcode-make/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/qrcode-make/src/test.ts",
+            "tsConfig": "projects/qrcode-make/tsconfig.spec.json",
+            "karmaConfig": "projects/qrcode-make/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/qrcode-make/tsconfig.lib.json",
+              "projects/qrcode-make/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "color"
