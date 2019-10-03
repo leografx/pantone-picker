@@ -1,5 +1,5 @@
 <h2>QRCODE</h2>
-<lib-qrcode-make></lib-qrcode-make>
+<lib-qrcode-make [message]="'http://grafx2print.com'" (image)="getImage($event)"> </lib-qrcode-make>
 
 <h2>Front</h2>
 <lib-pantone-picker [label]="'front'" (selectColorList)="colorListSelected($event)"></lib-pantone-picker>

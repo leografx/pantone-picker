@@ -24,6 +24,10 @@ export class AppComponent {
     console.log(e);
   }
 
+  getImage(e) {
+    console.log(e);
+  }
+
   // setColor(color) {
   //   this.colorLabel.rgb = color.red;
   //   this.colorLabel.rgb += ', ';

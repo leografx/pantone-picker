@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import QRCode from 'qrcode';
 
 @Component({
@@ -9,21 +9,24 @@ import QRCode from 'qrcode';
   styles: []
 })
 export class QrcodeMakeComponent implements OnInit {
-
+  @Input() message = 'http://google.com';
+  @Output() image = new EventEmitter();
   qr;
 
   constructor() {
-    QRCode.toDataURL('http://google.com')
+
+  }
+
+  ngOnInit() {
+    QRCode.toDataURL(this.message)
       .then(url => {
         this.qr = url;
-        console.log(url)
+        this.image.emit(url);
+        // console.log(url);
       })
       .catch(err => {
         console.error(err)
       })
-  }
-
-  ngOnInit() {
   }
 
 }
