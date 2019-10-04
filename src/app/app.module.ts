@@ -6,6 +6,7 @@ import { BindingPickerModule } from 'binding-picker';
 import { FoldPickerModule } from 'fold-picker';
 import { EnvelopePickerModule } from 'envelope-picker';
 import { QrcodeMakeModule } from 'qrcode-make';
+import { TimePlannerModule } from 'time-planner';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { QrcodeMakeModule } from 'qrcode-make';
     BindingPickerModule,
     FoldPickerModule,
     EnvelopePickerModule,
-    QrcodeMakeModule
+    QrcodeMakeModule,
+    TimePlannerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
