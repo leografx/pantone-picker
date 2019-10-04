@@ -334,6 +334,41 @@
           }
         }
       }
+    },
+    "time-planner": {
+      "projectType": "library",
+      "root": "projects/time-planner",
+      "sourceRoot": "projects/time-planner/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/time-planner/tsconfig.lib.json",
+            "project": "projects/time-planner/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/time-planner/src/test.ts",
+            "tsConfig": "projects/time-planner/tsconfig.spec.json",
+            "karmaConfig": "projects/time-planner/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/time-planner/tsconfig.lib.json",
+              "projects/time-planner/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "color"

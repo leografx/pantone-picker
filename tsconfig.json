@@ -54,6 +54,12 @@
       ],
       "qrcode-make/*": [
         "dist/qrcode-make/*"
+      ],
+      "time-planner": [
+        "dist/time-planner"
+      ],
+      "time-planner/*": [
+        "dist/time-planner/*"
       ]
     }
   },
