@@ -11,7 +11,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
     </div>
 
     <div class="col">
-      <div (dblclick)="erase($event)" (click)="highlight($event)" class="row line-left" *ngFor="let hour of hours">
+      <div (mouseup)="erase($event)" (dblclick)="erase($event)" 
+      (mouseover)="highlight($event)" class="row line-left" *ngFor="let hour of hours">
         &nbsp;
       </div>
     </div>
@@ -126,7 +127,7 @@ export class TimePlannerComponent implements OnInit {
 
   highlight(e) {
     const item = new ElementRef(e.target);
-    item.nativeElement.style.background = 'orange';
+    item.nativeElement.style.background = '#85C1E9';
   }
 
   erase(e) {
