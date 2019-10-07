@@ -1,0 +1,88 @@
+<div class="container">
+
+    <div class="col">
+        <a (click)="toggleSelect($event)">Select tool</a> <br>
+        <a (click)="toggleErase($event)">Erase tool</a> <br>
+        <input (change)="colorSelected($event)" type="color" style="width:100px;" [value]="'#85C1C9'" />
+    </div>
+
+    <div class="col">
+        <div class="row text-right" *ngFor="let hour of hours">
+            {{ hour }} &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div (dblclick)="dblClickAddLabel($event)" (mouseup)="changeColor($event)" (mouseover)="highlight($event)" class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
+</div>

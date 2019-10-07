@@ -1,0 +1,33 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(30, 200px);
+    overflow: scroll;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.line-left {
+    border-left: 3px solid silver;
+}
+
+.row {
+    width: 100%;
+    color: silver;
+    font-weight: normal;
+    line-height: 30px;
+    font-size: 12px;
+    border-bottom: 1px solid silver;
+}
+
+.row::selection {
+    display: inline-block;
+    background: transparent;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}

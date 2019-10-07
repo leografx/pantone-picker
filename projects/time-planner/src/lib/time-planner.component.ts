@@ -2,96 +2,12 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'lib-time-planner',
-  template: `
-  <div class="container">
-    <div class="col"> 
-      <div class="row text-right" *ngFor="let hour of hours">
-        {{ hour }} &nbsp;
-      </div>
-    </div>
-
-    <div class="col">
-      <div (mouseup)="erase($event)" (dblclick)="erase($event)" 
-      (mouseover)="highlight($event)" class="row line-left" *ngFor="let hour of hours">
-        &nbsp;
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="row line-left" *ngFor="let hour of hours">
-        &nbsp;
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="row line-left" *ngFor="let hour of hours">
-        &nbsp;
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="row line-left" *ngFor="let hour of hours">
-        &nbsp;
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="row line-left" *ngFor="let hour of hours">
-        &nbsp;
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="row line-left" *ngFor="let hour of hours">
-        &nbsp;
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="row line-left" *ngFor="let hour of hours">
-        &nbsp;
-      </div>
-    </div>
-
-  </div>
-  `,
-  styles: [
-    `
-    .container {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-    }
-
-    .text-right {
-      text-align:right;
-    }
-
-      .line-left {
-        border-left: 3px solid silver;
-      }
-
-      .col {
-
-      }
-
-      .row {
-        width:100%;
-        color: silver;
-        font-weight: normal;
-        line-height: 30px;
-        font-size: 12px;
-        border-bottom: 1px solid silver;
-      }
-
-      .row::selection{
-        display: inline-block;
-        background: yellow;
-      }
-
-     `
-  ]
+  templateUrl: 'time-planner.html',
+  styleUrls: ['time-planner.scss']
 })
 export class TimePlannerComponent implements OnInit {
+  select = false;
+  erase = false;
 
   hours = [
     '5:00am', '5:15am', '5:30am', '5:45am',
@@ -119,20 +35,73 @@ export class TimePlannerComponent implements OnInit {
     '3:00am', '3:17am', '3:30am', '3:45am',
     '4:00am', '4:17am', '4:30am', '4:45am'
   ];
+  selectedColor;
+  selectBtn;
+  selectedHours = [];
+
+  eraseBtn;
+  eraseHours = [];
 
   constructor() { }
 
   ngOnInit() {
+
+    this.selectedColor = '#85C1C9';
+  }
+
+  changeColor(e) {
+    if (this.select) {
+      this.selectedHours.map(data => {
+        data.nativeElement.style.background = this.selectedColor;
+        data.nativeElement.style.borderBottomColor = this.selectedColor;
+        data.nativeElement.style.borderTopColor = this.selectedColor;
+        this.toggleSelect(this.selectBtn);
+      });
+    }
   }
 
   highlight(e) {
     const item = new ElementRef(e.target);
-    item.nativeElement.style.background = '#85C1E9';
+    if (this.select) {
+      if (e.which) {
+        this.selectedHours.push(item);
+      }
+    }
   }
 
-  erase(e) {
+  highlightColor(e) {
+    this.selectedHours.map(data => data.nativeElement.style.background = '#85C1C9');
+  }
+
+  eraseToggle(e) {
     const item = new ElementRef(e.target);
     item.nativeElement.style.background = 'transparent';
+  }
+
+  toggleSelect(e) {
+    this.selectBtn = e;
+    this.selectedHours = [];
+    this.select = !this.select;
+    console.log(e.target.innerHTML);
+    e.target.innerHTML = (this.select) ? 'Select ON' : 'Select Tool';
+  }
+
+  toggleErase(e) {
+    this.eraseBtn = e;
+    this.eraseHours = [];
+    this.erase = !this.erase;
+    e.target.innerHTML = (this.erase) ? 'Erase ON' : 'Erase Tool';
+    this.select = false;
+    this.toggleSelect(this.selectBtn);
+  }
+
+  dblClickAddLabel(e) {
+    // tslint:disable-next-line:max-line-length
+    e.target.innerHTML = `<input type="text" style="background:transparent; width:190px; height:28px; border: 0px; margin:0px; padding:0px 5px;"  value=""/>`;
+  }
+
+  colorSelected(e) {
+    this.selectedColor = e.target.value;
   }
 
 }
