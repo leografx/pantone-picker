@@ -1,9 +1,23 @@
 <div class="container">
 
     <div class="col">
-        <a (click)="toggleSelect($event)">Select tool</a> <br>
-        <a (click)="toggleErase($event)">Erase tool</a> <br>
-        <input (change)="colorSelected($event)" type="color" style="width:100px;" [value]="'#85C1C9'" />
+        <a (click)="toggleSelect($event)">
+            <div class="toolbox-icon">
+                <img height="28px" *ngIf="select"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACPklEQVRoge3Yz4tOURzH8deYQaTxIyyI2cxI2WCnjIXVlA0bycJOrEfxH4iNhUSWFmYriigRM6WkZCNWymr8iEYSYsbizOgxc+/MM/eec+9Vz7tu3Trf53u+n/s9z7mfe+jQoUMRlqCv7iLKMIwpnK27kKJcEARM4YrQkVqIMfFJXMfSCLkWTawndwQ3sCJSvraJ2foDuIfVEXMuSOy1O4gH2BA5by4p/ny78RhbEuSeQ6rdYzvGsC1R/r+k3P62YhQ7E86RfP/eiIfYm2qCKl5Aa4TdaShF8qreoCtxE4djJ67SAizDCI7HTFq1h+nGVZyOlbAOE9aF8zg3fV+K2lwkzuBy2RrqFEAEJ1u3AEo62SYIIDjZuwo42aYIgH0KONkmCaCAk22aAIKTHcWmdoKbKIBwZNOWi+1JXEgWk/jQco233L/De7zF83aSVS3gk7C+v8VKWPUSWodjMROmEvARX3PGhmPOm0LAOPbjWs74AA4lmHdRtB4ttl5v0D8dM4DfOXFPK653DlkCXmLzrLg7GXEz12BVxWYxW8AzrM+IG5Iv4FYllebQKuARenPiuoTOZAmYxI6yhRT9E8/sMLeFp/wlJ24Kl3LGunCq4Pyl6RV2knY+RFbhs+wufNem58mju+DvfuCVsAwW4qdwwLUnY6wHv3C/YB2V0ScUmtWFCSWO5It2YLFMYJdglWezXHhzPymSuEovdHGesf55xhrFC/8un9c4IXThv+CoUPgYDmruB9W8rK27gA4x+QPC64BBReCpTgAAAABJRU5ErkJggg==">
+                <img height="32px" *ngIf="!select"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEBUlEQVRoge2YUUgkdRzHP7+ZdkVLze06LvVYZ9wsFA7CIIMWDh8SLzSRuwuMXq58OYoUjj3KB18UU8ST2w7u4SAqCITunuTgkCNISBCMOIj2KHQWuRBEd3Th0HDn18OpxXHZ6czqy35gX+Y/8/3OZ3/DzDBQoECBAgUKFDg6xG9ANBptNQzjmqp6ItK5sLBwL4gTe1oM3wGGcQOwRKRWRH6MRqNvBnBeT98fQEYlQHd3N0C5aZp3Lct6O4DcpyIIAQC6urro7e1FRIpFZNKyrLNBZe9FYAIAbW1t9PX1YRhGSEQmbNu+EGT+kwhUAKC5uZmBgQHC4bChqjds2+4NuuPfBC4A0NTUxMjICCUlJajqmG3bX+SjB/IkAHDq1CmuXLkiZWVlqOply7KSBHDbfpy8CQDU1dVx9epVjh07BvCxZVlfnz59+pkgO/IqABCNRkkmk1RWVgJ8kE6nv4/FYkVB5eddAODEiRMkk0ls2wZ4d2tr63ZDQ8NzQWQfigBAJBJhfHyc+vp6RKT54cOHt23bLvebe2gCAKWlpYyOjtLY2AgQF5EfYrHYi34yD1UAoLi4mKGhIeLxOJ7nveZ53nRtbe3Jg+YdugBAKBSiv7+flpYWVPUVVf3Jtu26g2QdiQCAaZokEgna29tR1WoRmY7FYg37zTkyAQDDMOjp6aGrqwvP847ncrmv9psR6ENlL1KpFPfv38d1XVZXV1ldXSWTyez+tnl+v7l5FfA8D8N4NOSlpSXGx8f32j0rIp/ttyNvl5DjOFy6dAnP8wCIx+M7T2OAb4BuVe0wDOMt4FVVPT4/P39zvz15mUAqlSKRSHjZbNaYnZ2lqakJ0zQ5f/78zhSKFhYWbgTRFfgE5ubm6Onp0Ww2awDcvPnPn9ra2kokEgE4G4vFaoPoC1Tgzp07JBIJ3dzcFFX9DsjNzc3hOA4A4XCY9vZ2ADOXy30aRGdgAhMTEwwPD+N5nqjqkOM47wOTqsqtW7d29+vo6KCoqEhF5MOqqqoX/Pb6FhCRBwDXr19HH3HZcZzPt9e+BJiammJ9fR2A8vJyzpw5I6paEg6HL/rt9y3ged5HwJ8i8kBVLziOM7KzNj8/fxf4bWNjg8nJyd1jzp07t3N7/aS6urrYT7/p52AA13X/cF13LJPJjLmu+8vj65FIRIF3FhcX6ezsxDAMSktLSafTOI7zrGmaadd1fz5of95fJUKh0LfA+vLyMtPT0wBsbW1x8uTuC+jrfvJ9T+D/WFlZ+auiouIl4I3l5WXW1tYYHBxkZmYGQEWkP5PJ/H7Q/MC/EjwJ27ZfVtVfgdD2JhWR27lcbjCdTs/4yT4UAYCampr3ROQicE9VrzmOkzqs7gIFChQo8J/8Dd55YkubjvwCAAAAAElFTkSuQmCC">
+            </div>
+        </a>
+        <a (click)="toggleErase($event)">
+            <div class="toolbox-icon">
+                <img height="32px" *ngIf="!erase"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAB2ElEQVRoge2YvUoDQRRGT5MqZMHHsTCVpSKmTKeFVokPIPpsCeanSSv4GAYlIBjXYnIhzM4kuzt3dyewB6YJ4c755o/ZgZaWlrroAK/AB7AGJsBFk0JFSIAZkFptC4wb9MpFAszJykv7I+IQx+SjDtEFpmRlF8AV8EU2xFMjpg4OySe7//SJNEQeecEXorHl1MUcj3nkhWhClJEXGg8RIi/0gW8aCKEhL9Qeoof7nC8jL1wCG7IhRqGyNpojb+Oaie3udxV8I58CQ6U+XDMx0Sh8SD4FfoBrjY6AgVX7M7Sgb9m4QtwE9pUAS6vue0jBHu4r8QJzSmzRmwmXfAo8VyEvG/YenRA++TfMR1Fhipw2d7hD5F1OPvk5ZhArlRfKhohCXigaIip5IW8IdfkOZsPYBZcF5IVjGzvBDIrd16ysPMCLkrzgCzGsQh7Mu81+wRVwFlIQ93JytTnh9yjWVtFBaMEdrplQWfM2E6vwBnOx0mBExfIA58Av+iF8H/sqy8ZmhPmI0ArhO21UR97mAZ0QtY68TWiIRuWFsiGikBeKhohKXsgbosjTYu08cjhE1PLCGHeIW/xHZTTygitEXe3kQ6jieo04qQBgnvummFtsHTPS0tKyxz+Suith3XxDBgAAAABJRU5ErkJggg==">
+                <img height="32px" *ngIf="erase"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABlUlEQVRoge2YPU7DMBhA39KpaiSOwwATIwscAqaWAyAYmThUEE1ZGFiQOEDZ6cJEgMGyVH0kTWJ//inKk7x+es9yIicwMjISiwlwC7wBG6AEjlIKDaEAlsCPWDWwSOjViwKo+Ctv1zcZR3TJZx0xBR7olt+OuEpi2sBQ+awiXOWzOE5TzOvRVT5phJZ8kght+agRoeSjRMzo957XiJhry4feeblq4FhLPtbOy1WGlF9HCPjwlW87NivMvec+cMCrj/yM5iuxlbeEjLgOLW+5CyD/iPkoGkzXsWlDM6LCbGI0ec2IZPIaEcnlfSKc5SeYB0YOfHKUd4lYusoD3DQM9JW39Inwkgfz32Z74DNw4DNQsCuiQmGjNmLoue9AQUHztcP5zEtKMfgTONEYjJFfEVAe4BD4Qj+i7WNf5dhI5piPCK2IKDsvuUAnIurOS3wjkspbXCOykLcMjchK3tI3ok3e9R6lyiW7I7KWtyxojjij/VWZjbylKSL0egdO9z1irRlgI+p9DgDzu+8lQoj6ERoZ+Q/8AvnP0CMJJCuMAAAAAElFTkSuQmCC">
+            </div>
+        </a>
+        <input (change)="colorSelected($event)" type="color" style="width:28px;" [value]="'#85C1C9'" />
     </div>
 
     <div class="col">
@@ -13,7 +27,8 @@
     </div>
 
     <div class="col">
-        <div (dblclick)="dblClickAddLabel($event)" (mouseup)="changeColor($event)" (mouseover)="highlight($event)" class="row line-left" *ngFor="let hour of hours">
+        <div (dblclick)="dblClickAddLabel($event)" (mouseup)="changeColor($event)"
+            (mouseover)="highlightColor($event); highlight($event);" class="row line-left" *ngFor="let hour of hours">
             &nbsp;
         </div>
     </div>

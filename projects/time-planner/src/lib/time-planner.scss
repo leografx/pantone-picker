@@ -31,3 +31,15 @@ input {
     height: 30px;
     line-height: 30px;
 }
+
+.toolbox-icon {
+    height: 32px;
+    width: 32px;
+    background: silver;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.toolbox-icon ::selection {
+    background: 'transparent';
+}
