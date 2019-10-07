@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, EventEmitter, Output } from '@angular/core';
 import { hours } from './hours';
 
 @Component({
@@ -16,6 +16,7 @@ export class TimePlannerComponent implements OnInit {
   selectBtn;
   selectedColor;
   selectedHours = [];
+  @Output() hoursSelected = new EventEmitter<any>();
 
   constructor() { }
 
@@ -26,12 +27,15 @@ export class TimePlannerComponent implements OnInit {
 
   changeColor(e) {
     if (this.select) {
+      console.log(this.selectedHours);
+      this.hoursSelected.emit(this.selectedHours);
       this.selectedHours.map(data => {
         data.nativeElement.style.background = this.selectedColor;
         data.nativeElement.style.borderBottomColor = this.selectedColor;
         data.nativeElement.style.borderTopColor = this.selectedColor;
-        this.toggleSelect(this.selectBtn);
       });
+
+      this.selectedHours = [];
     }
 
     if (this.erase) {
@@ -39,8 +43,9 @@ export class TimePlannerComponent implements OnInit {
         data.nativeElement.style.background = 'transparent';
         data.nativeElement.style.borderBottomColor = 'silver';
         data.nativeElement.style.borderTopColor = 'silver';
-        this.toggleErase(this.eraseBtn);
       });
+
+      this.eraseHours = [];
     }
 
     const count = this.mouseOver.length;
@@ -75,10 +80,10 @@ export class TimePlannerComponent implements OnInit {
     }
   }
 
-  eraseToggle(e) {
-    const item = new ElementRef(e.target);
-    item.nativeElement.style.background = 'transparent';
-  }
+  // eraseToggle(e) {
+  //   const item = new ElementRef(e.target);
+  //   item.nativeElement.style.background = 'transparent';
+  // }
 
   toggleSelect(e) {
     this.selectBtn = e;
