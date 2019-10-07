@@ -34,7 +34,16 @@ export class TimePlannerComponent implements OnInit {
       });
     }
 
-    let count = this.mouseOver.length;
+    if (this.erase) {
+      this.eraseHours.map(data => {
+        data.nativeElement.style.background = 'transparent';
+        data.nativeElement.style.borderBottomColor = 'silver';
+        data.nativeElement.style.borderTopColor = 'silver';
+        this.toggleErase(this.eraseBtn);
+      });
+    }
+
+    const count = this.mouseOver.length;
     this.mouseOver.map((data, index) => {
       data.nativeElement.style.borderLeftColor = 'silver';
       if (index + 1 === count) {
@@ -50,13 +59,19 @@ export class TimePlannerComponent implements OnInit {
         this.selectedHours.push(item);
       }
     }
+
+    if (this.erase) {
+      if (e.which) {
+        this.eraseHours.push(item);
+      }
+    }
   }
 
   highlightColor(e) {
     if (e.which) {
       const item = new ElementRef(e.target);
       this.mouseOver.push(item);
-      this.mouseOver.map(data => data.nativeElement.style.borderLeftColor = this.selectedColor);
+      this.mouseOver.map(data => data.nativeElement.style.borderLeftColor = (this.select) ? this.selectedColor : 'red');
     }
   }
 
