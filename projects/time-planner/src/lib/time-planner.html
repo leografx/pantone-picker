@@ -44,77 +44,10 @@
     </div>
 
     <div class="col">
+        <div class="row title"> {{ title }} </div>
         <div (click)="addInput($event)" (mouseup)="changeColor($event)" [id]="'hour-' + hour"
             (mouseover)="highlightColor($event); highlight($event);" class="row line-left" *ngFor="let hour of hours">
             &nbsp;
         </div>
     </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="row line-left" *ngFor="let hour of hours">
-            &nbsp;
-        </div>
-    </div>
-
 </div>
