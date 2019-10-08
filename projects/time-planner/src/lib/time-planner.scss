@@ -4,8 +4,26 @@
     overflow: scroll;
 }
 
+
+.col-fixed {
+    position: absolute;
+    left:45px;
+    width: 160px;
+    background: silver;   
+    margin-right: 200px;
+}
+
+.col-fixed .row {
+    color: white;
+    border-color: white;
+}
+
 .text-right {
     text-align: right;
+}
+
+.col-first .row {
+    border-color: transparent;
 }
 
 .line-left {
@@ -24,6 +42,12 @@
 .row::selection {
     display: inline-block;
     background: transparent;
+}
+
+.date {
+    color: black !important;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 input {
@@ -49,3 +73,9 @@ input {
 .toolbox-icon ::selection {
     background: 'transparent';
 }
+
+.col-toolbox {
+    position: absolute;
+    left: 0px;
+}
+

@@ -1,6 +1,6 @@
 <div class="container">
 
-    <div class="col">
+    <div class="col col-toolbox">
         <a (click)="toggleSelect($event)">
             <div class="toolbox-icon">
                 <img height="28px" *ngIf="select"
@@ -17,19 +17,34 @@
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABlUlEQVRoge2YPU7DMBhA39KpaiSOwwATIwscAqaWAyAYmThUEE1ZGFiQOEDZ6cJEgMGyVH0kTWJ//inKk7x+es9yIicwMjISiwlwC7wBG6AEjlIKDaEAlsCPWDWwSOjViwKo+Ctv1zcZR3TJZx0xBR7olt+OuEpi2sBQ+awiXOWzOE5TzOvRVT5phJZ8kght+agRoeSjRMzo957XiJhry4feeblq4FhLPtbOy1WGlF9HCPjwlW87NivMvec+cMCrj/yM5iuxlbeEjLgOLW+5CyD/iPkoGkzXsWlDM6LCbGI0ec2IZPIaEcnlfSKc5SeYB0YOfHKUd4lYusoD3DQM9JW39Inwkgfz32Z74DNw4DNQsCuiQmGjNmLoue9AQUHztcP5zEtKMfgTONEYjJFfEVAe4BD4Qj+i7WNf5dhI5piPCK2IKDsvuUAnIurOS3wjkspbXCOykLcMjchK3tI3ok3e9R6lyiW7I7KWtyxojjij/VWZjbylKSL0egdO9z1irRlgI+p9DgDzu+8lQoj6ERoZ+Q/8AvnP0CMJJCuMAAAAAElFTkSuQmCC">
             </div>
         </a>
+        <a (click)="toggleText($event)">
+            <div class="toolbox-icon">
+                <img height="28px" *ngIf="!text"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABEklEQVRIie3WsUoDQRCA4U8RhWCKCNoqprEV42MICqKVtb2lb2CX1tpeBGufQMXWVuzEsxRCILG4FcJ66+WMsZD7YbhlZmf/veOKoeaPmEnkF7CDpQnPf8M1enFhLtFwEuJpQvEq2jgbV7yGSxxPKD7HelFhtqSxLf9MwygG2AsxKKj3Qm+S1Bt/0sI8OlH+Aith/YijqH4XeiuLM+xiOazvo/p7tI7rGU6xgasq4m54tnCQ2PMdh9iXf41u0YaU+EV+459yEyJJ2c81NWpxLa7Ftfj/i5vYQmMk1wi55m9dqkiaSQ8Cr1ichrgTBCmGvg4MScomkFGe0ZdPF0X0w56xSI23KTaxnajd4qHieTXT5wPqijWZfJykhwAAAABJRU5ErkJggg==">
+                <img height="28px" *ngIf="text"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAeUlEQVRIie2WSwqAMAwFn+L9L2VdiWeKGzdK88OAUN9A6aIl06SLBCB/5QAgRWvvCSZFLFUZaJ65WBBmCdzpVeVZkcidG1rG7dpX51EWZgztjz0iGZt89scUU0wxxRSPJ97Q77OCZAvNtjNvJArHy2bcjLM3QwMZkBPKFSDL4s92CQAAAABJRU5ErkJggg==">
+            </div>
+        </a>
         <div class="toolbox-icon">
             <input (change)="colorSelected($event)" type="color" style="width:28px;" [value]="'#85C1C9'" />
         </div>
     </div>
 
-    <div class="col">
+    <div class="col col-fixed">
+        <div class="row date"> &nbsp; {{ date }}</div>
         <div class="row text-right" *ngFor="let hour of hours">
             {{ hour }} &nbsp;
         </div>
     </div>
 
+    <div class="col col-first">
+        <div class="row line-left" *ngFor="let hour of hours">
+            &nbsp;
+        </div>
+    </div>
+
     <div class="col">
-        <div (dblclick)="dblClickAddLabel($event)" (mouseup)="changeColor($event)"
+        <div (click)="addInput($event)" (mouseup)="changeColor($event)" [id]="'hour-' + hour"
             (mouseover)="highlightColor($event); highlight($event);" class="row line-left" *ngFor="let hour of hours">
             &nbsp;
         </div>
