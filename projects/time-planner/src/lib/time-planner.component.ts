@@ -126,6 +126,12 @@ export class TimePlannerComponent implements OnInit {
     this.erase = false;
   }
 
+  hourSeparator(i) {
+    console.log(i % 4);
+    if (i % 4 === 0) { return true; }
+    return false;
+  }
+
 }
 
 

@@ -32,7 +32,7 @@
 
     <div class="col col-fixed">
         <div class="row date"> &nbsp; {{ date }}</div>
-        <div class="row text-right" *ngFor="let hour of hours">
+        <div *ngFor="let hour of hours; index as ii" class="row text-right">
             {{ hour }} &nbsp;
         </div>
     </div>
@@ -46,7 +46,8 @@
     <div class="col">
         <div class="row title"> {{ title }} </div>
         <div (click)="addInput($event)" (mouseup)="changeColor($event)" [id]="'hour-' + hour"
-            (mouseover)="highlightColor($event); highlight($event);" class="row line-left" *ngFor="let hour of hours">
+            (mouseover)="highlightColor($event); highlight($event);" class="row line-left"
+            *ngFor="let hour of hours; index as i">
             &nbsp;
         </div>
     </div>
